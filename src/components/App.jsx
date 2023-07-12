@@ -36,18 +36,27 @@ export const App = () => {
     }
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    setImages([]);
-    showResponse();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   setImages([]);
+  //   showResponse();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [query]);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   showResponse();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [page]);
 
   useEffect(() => {
+if(query){
     setIsLoading(true);
     showResponse();
+}
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [page, query]); 
+  
 
   const loadMoreButton = e => {
     setPage(prev => prev + 1);
